@@ -1,120 +1,122 @@
-import React, { useState, useEffect } from 'react';
-import { createRoot } from 'react-dom/client';
-import { 
-  Github, 
-  Linkedin, 
-  Mail, 
-  ExternalLink, 
-  Code2, 
-  User, 
-  Briefcase,
-  ChevronRight
-} from 'lucide-react';
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ritesh Kumar Chaurasia | Data Architect</title>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root { --obsidian: #050505; --sky: #38bdf8; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--obsidian); scroll-behavior: smooth; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        .text-glow-blue { text-shadow: 0 0 15px rgba(56, 189, 248, 0.4); }
+        .glass { background: rgba(10, 10, 10, 0.8); backdrop-filter: blur(12px); }
+        .animate-pulse-border { animation: pulse 4s infinite ease-in-out; }
+        @keyframes pulse { 0%, 100% { border-color: rgba(56, 189, 248, 0.1); } 50% { border-color: rgba(56, 189, 248, 0.4); } }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        const { Linkedin, Mail, Database, Code2, Terminal, Zap, ExternalLink, Cpu, Workflow, Box, MapPin, User, ChevronRight, Monitor, Layers, CheckCircle2, Clock, GraduationCap } = {
+            Linkedin: () => <i data-lucide="linkedin"></i>,
+            Mail: () => <i data-lucide="mail"></i>,
+            Database: () => <i data-lucide="database"></i>,
+            Code2: () => <i data-lucide="code-2"></i>,
+            Terminal: () => <i data-lucide="terminal"></i>,
+            Zap: () => <i data-lucide="zap"></i>,
+            ExternalLink: () => <i data-lucide="external-link"></i>,
+            Cpu: () => <i data-lucide="cpu"></i>,
+            Workflow: () => <i data-lucide="workflow"></i>,
+            Box: () => <i data-lucide="box"></i>,
+            MapPin: () => <i data-lucide="map-pin"></i>,
+            User: () => <i data-lucide="user"></i>,
+            ChevronRight: () => <i data-lucide="chevron-right"></i>,
+            Monitor: () => <i data-lucide="monitor"></i>,
+            Layers: () => <i data-lucide="layers"></i>,
+            CheckCircle2: () => <i data-lucide="check-circle-2"></i>,
+            Clock: () => <i data-lucide="clock"></i>,
+            GraduationCap: () => <i data-lucide="graduation-cap"></i>
+        };
 
-const Portfolio = () => {
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  return (
-    <div className="min-h-screen">
-      {/* Navigation */}
-      <nav className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled ? 'dark-glass py-4' : 'bg-transparent py-6'
-      }`}>
-        <div className="container mx-auto px-6 flex justify-between items-center">
-          <span className="text-xl font-extrabold tracking-tighter text-blue-600">RKC.</span>
-          <div className="hidden md:flex space-x-8 font-medium">
-            {['About', 'Projects', 'Contact'].map((item) => (
-              <a key={item} href={`#${item.toLowerCase()}`} className="hover:text-blue-500 transition-colors">
-                {item}
-              </a>
-            ))}
-          </div>
-        </div>
-      </nav>
-
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="max-w-3xl">
-            <h2 className="text-blue-600 font-semibold mb-4 tracking-wide uppercase text-sm">Available for work</h2>
-            <h1 className="text-5xl lg:text-7xl font-extrabold mb-6 leading-tight">
-              Crafting digital <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-500">experiences</span> with code.
-            </h1>
-            <p className="text-xl text-slate-600 mb-10 leading-relaxed max-w-2xl">
-              Hi, I'm <span className="font-semibold text-slate-900">Ritesh Kumar Chaurasia</span>. 
-              A passionate developer focused on building clean, user-centric web applications.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <a href="#projects" className="px-8 py-4 bg-blue-600 text-white rounded-full font-semibold hover:bg-blue-700 transition-all shadow-lg shadow-blue-200 flex items-center gap-2">
-                View My Work <ChevronRight size={18} />
-              </a>
-              <div className="flex gap-4 items-center px-4">
-                <a href="#" className="p-3 bg-white rounded-full border border-slate-200 hover:border-blue-300 transition-all"><Github size={20} /></a>
-                <a href="#" className="p-3 bg-white rounded-full border border-slate-200 hover:border-blue-300 transition-all"><Linkedin size={20} /></a>
-              </div>
-            </div>
-          </div>
-        </div>
-        {/* Decorative background element */}
-        <div className="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 w-[500px] h-[500px] bg-blue-100 rounded-full blur-3xl opacity-50 -z-10"></div>
-      </section>
-
-      {/* Projects Preview */}
-      <section id="projects" className="py-20 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="flex justify-between items-end mb-12">
-            <div>
-              <h2 className="text-3xl font-bold mb-2">Featured Projects</h2>
-              <p className="text-slate-500">A selection of my recent work</p>
-            </div>
-          </div>
-          
-          <div className="grid md:grid-cols-2 gap-8">
-            {[1, 2].map((i) => (
-              <div key={i} className="group glass rounded-3xl overflow-hidden border border-slate-100 hover:shadow-2xl transition-all duration-500">
-                <div className="h-64 bg-slate-200 relative overflow-hidden">
-                   <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-indigo-500/20 group-hover:scale-110 transition-transform duration-700"></div>
+        const ObsidianLogo = () => (
+            <div className="flex items-center gap-3 cursor-pointer">
+                <div className="relative w-9 h-9 flex items-center justify-center">
+                    <div className="absolute inset-0 bg-sky-500/20 rotate-45 rounded-lg border border-sky-500/50"></div>
+                    <span className="relative z-10 mono text-sky-400 font-bold text-lg">R</span>
                 </div>
-                <div className="p-8">
-                  <h3 className="text-2xl font-bold mb-3">Project Name {i}</h3>
-                  <p className="text-slate-600 mb-6">A brief description of the technology stack and the problem solved for the user.</p>
-                  <div className="flex gap-3">
-                    <span className="px-3 py-1 bg-slate-100 rounded-md text-xs font-medium uppercase tracking-wider">React</span>
-                    <span className="px-3 py-1 bg-slate-100 rounded-md text-xs font-medium uppercase tracking-wider">Tailwind</span>
-                  </div>
+                <div className="flex flex-col">
+                    <span className="text-white font-black text-base tracking-tighter leading-none uppercase">Ritesh</span>
+                    <span className="text-sky-500 mono text-[8px] font-bold tracking-[0.3em] uppercase">Data_Architect</span>
                 </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+            </div>
+        );
 
-      {/* Footer */}
-      <footer id="contact" className="py-12 bg-slate-900 text-white">
-        <div className="container mx-auto px-6 text-center">
-          <h2 className="text-3xl font-bold mb-6">Let's build something together.</h2>
-          <p className="text-slate-400 mb-8">Currently open to freelance opportunities and full-time roles.</p>
-          <a href="mailto:ritesh@example.com" className="inline-flex items-center gap-2 text-xl font-medium border-b-2 border-blue-500 pb-1 hover:text-blue-400 transition-colors">
-            Get in touch <Mail size={20} />
-          </a>
-          <div className="mt-16 pt-8 border-t border-slate-800 text-slate-500 text-sm">
-            © {new Date().getFullYear()} Ritesh Kumar Chaurasia.
-          </div>
-        </div>
-      </footer>
-    </div>
-  );
-};
+        const App = () => {
+            React.useEffect(() => { lucide.createIcons(); }, []);
 
-// Mount the app
-const container = document.getElementById('root');
-if (container) {
-  const root = createRoot(container);
-  root.render(<Portfolio />);
-}
+            return (
+                <div className="bg-[#050505] min-h-screen text-slate-400">
+                    <nav className="fixed top-0 left-0 right-0 z-[100] p-6">
+                        <div className="max-w-4xl mx-auto flex justify-between items-center glass border border-white/10 p-4 rounded-2xl">
+                            <ObsidianLogo />
+                            <div className="hidden md:flex gap-8 mono text-[10px] font-bold uppercase tracking-widest text-white">
+                                <a href="#about">/root</a>
+                                <a href="#stack">/stack</a>
+                                <a href="#history">/logs</a>
+                            </div>
+                        </div>
+                    </nav>
+
+                    <main className="max-w-4xl mx-auto px-6 pt-48 pb-20 relative z-10">
+                        <section id="about" className="space-y-12 mb-32">
+                            <div className="inline-flex items-center gap-3 px-4 py-2 bg-sky-500/5 border border-sky-500/20 rounded-lg mono text-[10px] text-sky-400 animate-pulse-border">
+                                SYSTEM_ID: RITESH_V2 // STATUS: ACTIVE
+                            </div>
+                            <h1 className="text-6xl md:text-9xl font-black text-white tracking-tighter leading-none italic uppercase">
+                                Data <br /> <span className="text-sky-500 text-glow-blue">Engineer</span>
+                            </h1>
+                            <p className="text-xl md:text-2xl text-slate-400 font-light leading-relaxed max-w-2xl">
+                                Specialized in driving retention through SQL modeling, Python automation, and growth infrastructure.
+                            </p>
+                            <div className="flex flex-wrap gap-4 pt-4">
+                                <a href="mailto:riteshchaurasia108@gmail.com" className="px-10 py-5 bg-white text-black font-black uppercase text-xs tracking-widest flex items-center gap-3">
+                                    Initialize_Stack <ChevronRight />
+                                </a>
+                            </div>
+                        </section>
+
+                        <section id="stack" className="py-24 border-t border-white/5">
+                            <h2 className="text-3xl font-black text-white italic uppercase mb-12">System Stack</h2>
+                            <div className="space-y-4">
+                                <div className="p-8 bg-[#0a0a0a] border border-white/5 rounded-[2rem] flex items-center gap-8">
+                                    <div className="w-16 h-16 bg-sky-500/10 rounded-2xl flex items-center justify-center text-sky-400 border border-sky-500/20"><Database /></div>
+                                    <div className="flex-1">
+                                        <h3 className="text-2xl font-bold text-white">SQL Engineering</h3>
+                                        <p className="text-slate-500">Architecting robust schemas and analytical queries.</p>
+                                    </div>
+                                    <div className="px-5 py-2.5 bg-emerald-500/10 text-emerald-500 border border-emerald-500/20 rounded-xl mono text-[10px] font-bold tracking-widest uppercase">Completed</div>
+                                </div>
+                            </div>
+                        </section>
+                    </main>
+                    
+                    <footer className="py-20 border-t border-white/5 text-center">
+                        <p className="mono text-[9px] text-slate-700 italic uppercase font-bold tracking-[0.3em]">
+                            Obsidian_System // v2.0.7
+                        </p>
+                    </footer>
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+</html>
