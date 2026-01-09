@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ritesh Chaurasia | Data Architect & Growth Engineer</title>
+    <title>Ritesh Chaurasia | Data Engineer</title>
     
     <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
@@ -11,168 +11,176 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
     
     <style>
-        :root { --obsidian: #050505; --sky: #38bdf8; }
-        body { font-family: 'Inter', sans-serif; background-color: var(--obsidian); scroll-behavior: smooth; color: #94a3b8; }
+        :root { --obsidian: #020617; --neon: #22d3ee; --emerald: #10b981; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--obsidian); color: #94a3b8; scroll-behavior: smooth; }
         .mono { font-family: 'JetBrains Mono', monospace; }
-        .text-glow-blue { text-shadow: 0 0 15px rgba(56, 189, 248, 0.4); }
-        .glass { background: rgba(10, 10, 10, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.1); }
-        .section-border { border-top: 1px solid rgba(255, 255, 255, 0.05); }
-        @keyframes pulse { 0%, 100% { opacity: 0.1; } 50% { opacity: 0.4; } }
-        .animate-soft-pulse { animation: pulse 4s infinite ease-in-out; }
+        .glass { background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(34, 211, 238, 0.1); }
+        .neon-text { color: var(--neon); text-shadow: 0 0 10px rgba(34, 211, 238, 0.3); }
+        .grid-bg { background-image: radial-gradient(rgba(34, 211, 238, 0.05) 1px, transparent 1px); background-size: 30px 30px; }
+        .skill-tag { border: 1px solid rgba(34, 211, 238, 0.2); background: rgba(34, 211, 238, 0.05); }
     </style>
 </head>
-<body>
+<body class="grid-bg">
     <div id="root"></div>
 
     <script type="text/babel">
         const { 
-            Linkedin, Mail, Database, Code2, Terminal, Zap, ExternalLink, 
-            Cpu, Workflow, Box, MapPin, User, ChevronRight, Monitor, 
-            Layers, CheckCircle2, Clock, GraduationCap, Globe 
+            Database, Code2, Terminal, Cpu, Workflow, Boxes, 
+            ArrowUpRight, BarChart3, Binary, Layers, CheckCircle2, MapPin
         } = {
-            Linkedin: () => <i data-lucide="linkedin"></i>,
-            Mail: () => <i data-lucide="mail"></i>,
             Database: () => <i data-lucide="database"></i>,
             Code2: () => <i data-lucide="code-2"></i>,
             Terminal: () => <i data-lucide="terminal"></i>,
-            Zap: () => <i data-lucide="zap"></i>,
-            ExternalLink: () => <i data-lucide="external-link"></i>,
             Cpu: () => <i data-lucide="cpu"></i>,
             Workflow: () => <i data-lucide="workflow"></i>,
-            Box: () => <i data-lucide="box"></i>,
-            MapPin: () => <i data-lucide="map-pin"></i>,
-            User: () => <i data-lucide="user"></i>,
-            ChevronRight: () => <i data-lucide="chevron-right"></i>,
-            Monitor: () => <i data-lucide="monitor"></i>,
+            Boxes: () => <i data-lucide="boxes"></i>,
+            ArrowUpRight: () => <i data-lucide="arrow-up-right"></i>,
+            BarChart3: () => <i data-lucide="bar-chart-3"></i>,
+            Binary: () => <i data-lucide="binary"></i>,
             Layers: () => <i data-lucide="layers"></i>,
             CheckCircle2: () => <i data-lucide="check-circle-2"></i>,
-            Clock: () => <i data-lucide="clock"></i>,
-            GraduationCap: () => <i data-lucide="graduation-cap"></i>,
-            Globe: () => <i data-lucide="globe"></i>
+            MapPin: () => <i data-lucide="map-pin"></i>
         };
 
         const App = () => {
             React.useEffect(() => { lucide.createIcons(); }, []);
 
             return (
-                <div className="min-h-screen">
-                    {/* Navigation */}
-                    <nav className="fixed top-0 w-full z-50 p-6">
-                        <div className="max-w-5xl mx-auto glass rounded-2xl p-4 flex justify-between items-center">
+                <div className="min-h-screen pb-20">
+                    {/* Header */}
+                    <nav className="p-6 sticky top-0 z-50">
+                        <div className="max-w-6xl mx-auto flex justify-between items-center glass p-4 rounded-2xl">
                             <div className="flex items-center gap-3">
-                                <div className="w-8 h-8 bg-sky-500/20 rotate-45 rounded border border-sky-500/50 flex items-center justify-center">
-                                    <span className="mono text-sky-400 font-bold -rotate-45">R</span>
+                                <div className="p-2 bg-cyan-500/10 rounded-lg border border-cyan-500/30 text-cyan-400">
+                                    <Binary size={20} />
                                 </div>
-                                <span className="text-white font-bold tracking-tighter uppercase">Ritesh Chaurasia</span>
+                                <span className="text-white font-black tracking-tighter uppercase">Ritesh_Chaurasia</span>
                             </div>
-                            <div className="hidden md:flex gap-8 mono text-[10px] font-bold uppercase tracking-widest">
-                                <a href="#stack" className="hover:text-sky-400">/stack</a>
-                                <a href="#experience" className="hover:text-sky-400">/experience</a>
-                                <a href="#education" className="hover:text-sky-400">/education</a>
+                            <div className="flex gap-6 mono text-[10px] font-bold uppercase tracking-widest text-cyan-500">
+                                <a href="mailto:riteshchaurasia108@gmail.com" className="hover:text-white transition">Init_Contact</a>
                             </div>
                         </div>
                     </nav>
 
-                    <main className="max-w-5xl mx-auto px-6 pt-40 pb-20">
+                    <main className="max-w-6xl mx-auto px-6 pt-20">
                         {/* Hero Section */}
                         <section className="mb-32">
-                            <div className="inline-flex items-center gap-3 px-4 py-2 bg-sky-500/5 border border-sky-500/20 rounded-lg mono text-[10px] text-sky-400 mb-8">
-                                <span className="w-2 h-2 bg-sky-500 rounded-full animate-ping"></span>
-                                CURRENT_STATUS: DATA_ARCHITECT_FREELANCE
+                            <div className="inline-block px-4 py-1 rounded-md bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 mono text-[10px] font-bold mb-6 tracking-[0.2em]">
+                                DATA_ENGINEER_V2.0
                             </div>
-                            <h1 className="text-6xl md:text-8xl font-extrabold text-white tracking-tighter leading-none italic uppercase mb-8">
-                                Growth <br /> <span className="text-sky-500 text-glow-blue">Engineer</span>
+                            <h1 className="text-6xl md:text-8xl font-black text-white leading-none mb-8 tracking-tighter">
+                                Building <span className="neon-text italic">Robust</span> <br /> Pipelines.
                             </h1>
-                            <p className="text-xl md:text-2xl font-light leading-relaxed max-w-2xl mb-10">
-                                Bridging the gap between <strong>Data Engineering</strong> and <strong>Growth Marketing</strong>. Currently architecting freelance data pipelines and driving retention at Brevistay.
+                            <p className="text-xl md:text-2xl text-slate-400 max-w-3xl leading-relaxed">
+                                Specialized in **Data Architecture**, ETL optimization, and bridging marketing operations with engineering through Python-driven automation[cite: 31, 32, 34].
                             </p>
-                            <div className="flex flex-wrap gap-4">
-                                <a href="mailto:riteshchaurasia108@gmail.com" className="px-8 py-4 bg-white text-black font-bold uppercase text-xs tracking-widest flex items-center gap-3 hover:bg-sky-400 transition">
-                                    Initialize_Sync <Terminal />
-                                </a>
-                                <a href="https://www.linkedin.com/in/riteshchaurasia02" target="_blank" className="p-4 glass rounded-xl text-white hover:text-sky-400">
-                                    <Linkedin />
-                                </a>
-                            </div>
                         </section>
 
-                        {/* Freelance & Skills Section */}
-                        <section id="stack" className="section-border py-24">
-                            <div className="grid md:grid-cols-2 gap-12">
-                                <div>
-                                    <div className="mono text-sky-500 text-xs font-bold uppercase mb-4 tracking-widest">// Core_Logic</div>
-                                    <h2 className="text-4xl font-bold text-white mb-8 italic uppercase tracking-tighter">Technical Stack</h2>
-                                    <div className="space-y-4">
-                                        {[
-                                            { title: 'Data Engineering', desc: 'Python (Pandas, Numpy), SQL, ETL Pipelines', icon: <Database /> },
-                                            { title: 'MarTech & Automation', desc: 'Campaign Analytics, Clevertap, Webhooks', icon: <Workflow /> },
-                                            { title: 'Machine Learning', desc: 'Scikit-learn, Predictive Modeling', icon: <Cpu /> }
-                                        ].map((skill, i) => (
-                                            <div key={i} className="p-6 glass rounded-2xl flex items-center gap-6">
-                                                <div className="text-sky-400">{skill.icon}</div>
-                                                <div>
-                                                    <div className="text-white font-bold">{skill.title}</div>
-                                                    <div className="text-sm opacity-60">{skill.desc}</div>
-                                                </div>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </div>
-                                <div className="glass p-8 rounded-[2rem] border-dashed border-sky-500/30">
-                                    <div className="mono text-sky-500 text-xs font-bold uppercase mb-4 tracking-widest">// Freelance_Lab</div>
-                                    <h3 className="text-2xl font-bold text-white mb-4">Ongoing Projects</h3>
-                                    <p className="mb-6 text-sm">Building custom data architectures for diverse clients:</p>
-                                    <ul className="space-y-4 text-sm">
-                                        <li className="flex gap-3"><CheckCircle2 className="text-sky-500 w-5 h-5 shrink-0" /> Automated data ingestion engines for marketing KPIs.</li>
-                                        <li className="flex gap-3"><CheckCircle2 className="text-sky-500 w-5 h-5 shrink-0" /> SQL-based warehouse modeling for growth reporting.</li>
-                                        <li className="flex gap-3"><CheckCircle2 className="text-sky-500 w-5 h-5 shrink-0" /> Custom Python scripts for data cleaning & preprocessing.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </section>
-
-                        {/* Experience Section */}
-                        <section id="experience" className="section-border py-24">
-                            <h2 className="text-4xl font-bold text-white mb-12 italic uppercase tracking-tighter">Professional Logs</h2>
-                            <div className="space-y-8">
+                        {/* Engineering Skills Grid */}
+                        <section className="mb-32">
+                            <h2 className="text-xs font-bold uppercase tracking-[0.4em] text-cyan-500 mb-10">// TECHNICAL_STACK</h2>
+                            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                                 {[
-                                    { role: 'Executive - Growth & Retention', comp: 'Brevistay', date: 'Jan 2025 - Present', loc: 'Noida, UP' },
-                                    { role: 'Marketing Ops', comp: 'Badho', date: 'Aug 2024 - Dec 2024', loc: 'Gurugram' },
-                                    { role: 'Growth & Retention Intern', comp: 'Foundit.ai', date: 'Jan 2024 - Aug 2024', loc: 'Bengaluru' }
-                                ].map((job, i) => (
-                                    <div key={i} className="p-8 glass rounded-3xl hover:border-sky-500/50 transition flex flex-col md:flex-row justify-between gap-4">
-                                        <div>
-                                            <div className="mono text-sky-500 text-[10px] font-bold mb-1 uppercase tracking-widest">{job.date}</div>
-                                            <h3 className="text-2xl font-bold text-white uppercase italic">{job.comp}</h3>
-                                            <p className="text-sky-400 font-semibold">{job.role}</p>
-                                        </div>
-                                        <div className="text-right text-xs mono uppercase opacity-40 self-end md:self-center">
-                                            <MapPin className="inline w-3 h-3 mr-1" /> {job.loc}
-                                        </div>
+                                    { title: 'Python', tools: 'Pandas, Numpy', icon: <Code2 /> },
+                                    { title: 'ML Ops', tools: 'Scikit-learn, Predict', icon: <Cpu /> },
+                                    { title: 'Databases', tools: 'SQL, Modeling', icon: <Database /> },
+                                    { title: 'Visualization', tools: 'Matplotlib, Seaborn', icon: <BarChart3 /> }
+                                ].map((s, i) => (
+                                    <div key={i} className="p-6 glass rounded-xl border-l-2 border-cyan-500/50">
+                                        <div className="text-cyan-400 mb-4">{s.icon}</div>
+                                        <div className="text-white font-bold mb-1">{s.title}</div>
+                                        <div className="text-[10px] mono uppercase opacity-50">{s.tools}</div>
                                     </div>
                                 ))}
                             </div>
                         </section>
 
-                        {/* Education Section */}
-                        <section id="education" className="section-border py-24">
-                             <h2 className="text-4xl font-bold text-white mb-12 italic uppercase tracking-tighter">Education Schema</h2>
-                             <div className="p-8 glass rounded-3xl flex items-center gap-8">
-                                <div className="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center text-sky-400"><GraduationCap /></div>
+                        {/* Project Lab - Focus on Data Engineering */}
+                        <section className="mb-32">
+                            <div className="flex justify-between items-end mb-12">
                                 <div>
-                                    <h3 className="text-xl font-bold text-white">B.Tech in Biotechnology</h3>
-                                    <p className="text-sky-500 mono text-xs uppercase font-bold tracking-widest">Maharishi Markandeshwar University | 2020 - 2024</p>
+                                    <h2 className="text-4xl font-black text-white italic tracking-tighter uppercase">Project Lab</h2>
+                                    <p className="text-cyan-500 mono text-xs mt-2 uppercase">Infrastructure & ETL Focus</p>
                                 </div>
-                             </div>
+                            </div>
+                            <div className="grid md:grid-cols-2 gap-8">
+                                {/* Freelance Project 1 */}
+                                <div className="group glass p-8 rounded-[2.5rem] hover:bg-cyan-500/5 transition duration-500 border-dashed border-cyan-500/30">
+                                    <div className="flex justify-between mb-6 text-cyan-400">
+                                        <Boxes size={32} />
+                                        <span className="mono text-[10px] px-3 py-1 bg-cyan-500/10 rounded-full">FREELANCE</span>
+                                    </div>
+                                    <h3 className="text-2xl font-bold text-white mb-4 uppercase italic">Data_Ingestion_Engine</h3>
+                                    <p className="text-slate-400 text-sm mb-6 leading-relaxed">
+                                        Architecting automated Python scripts for normalized data collection from diverse marketing platforms. Reduced manual processing time for clients through ETL workflows.
+                                    </p>
+                                    <div className="flex flex-wrap gap-2">
+                                        {['Python', 'SQL', 'Webhooks', 'ETL'].map(t => (
+                                            <span key={t} className="px-3 py-1 skill-tag rounded-md text-[9px] font-bold text-cyan-400">{t}</span>
+                                        ))}
+                                    </div>
+                                </div>
+
+                                {/* Internship Project 1 */}
+                                <div className="group glass p-8 rounded-[2.5rem] hover:bg-emerald-500/5 transition duration-500 border-emerald-500/20">
+                                    <div className="flex justify-between mb-6 text-emerald-400">
+                                        <Layers size={32} />
+                                        <span className="mono text-[10px] px-3 py-1 bg-emerald-500/10 rounded-full">IIIT_ALLAHABAD</span>
+                                    </div>
+                                    <h3 className="text-2xl font-bold text-white mb-4 uppercase italic">Statistical_Predict_Model</h3>
+                                    <p className="text-slate-400 text-sm mb-6 leading-relaxed">
+                                        Optimized machine learning models using Scikit-learn to analyze large datasets and perform predictive analysis.
+                                    </p>
+                                    <div className="flex flex-wrap gap-2">
+                                        {['Data Preprocessing', 'Optimization', 'Python'].map(t => (
+                                            <span key={t} className="px-3 py-1 skill-tag rounded-md text-[9px] font-bold text-emerald-400 uppercase">{t}</span>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        {/* Professional Log */}
+                        <section id="experience" className="mb-32">
+                            <h2 className="text-xs font-bold uppercase tracking-[0.4em] text-cyan-500 mb-10">// EXPERIENCE_LOGS</h2>
+                            <div className="space-y-4">
+                                {[
+                                    { role: 'Growth & Retention', comp: 'Brevistay', date: '2025 - Present' },
+                                    { role: 'Marketing Ops', comp: 'Badho', date: '2024' },
+                                    { role: 'Data Science Intern', comp: 'CognoRise InfoTech', date: '2023' }
+                                ].map((j, i) => (
+                                    <div key={i} className="flex justify-between items-center p-6 glass rounded-xl group hover:border-cyan-500 transition">
+                                        <div>
+                                            <h4 className="text-white font-bold">{j.role}</h4>
+                                            <p className="text-xs mono uppercase text-slate-500">{j.comp}</p>
+                                        </div>
+                                        <div className="text-[10px] mono text-cyan-500">{j.date}</div>
+                                    </div>
+                                ))}
+                            </div>
+                        </section>
+
+                        {/* Education */}
+                        <section className="mb-20">
+                            <h2 className="text-xs font-bold uppercase tracking-[0.4em] text-cyan-500 mb-10">// EDUCATION_SCHEMA</h2>
+                            <div className="p-8 glass rounded-[2rem] flex flex-col md:flex-row gap-8 items-center border-emerald-500/10">
+                                <div className="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center text-cyan-400 shrink-0">
+                                    <CheckCircle2 size={32} />
+                                </div>
+                                <div className="text-center md:text-left">
+                                    <h3 className="text-2xl font-black text-white tracking-tighter uppercase italic">B.Tech in Biotechnology</h3>
+                                    <p className="text-slate-500 font-bold uppercase mono text-xs">Maharishi Markandeshwar University | 2020 - 2024 </p>
+                                </div>
+                            </div>
                         </section>
                     </main>
 
-                    <footer className="py-20 section-border text-center">
-                        <div className="mono text-[10px] uppercase tracking-[0.4em] opacity-30">
-                            Obsidian_System // v2.1.0 // Noida_India
+                    <footer className="pt-20 border-t border-white/5 text-center">
+                        <div className="mono text-[9px] uppercase tracking-[0.5em] opacity-30">
+                            ARCHITECTED_BY_RITESH // NOIDA_SYSTEMS
                         </div>
                     </footer>
                 </div>
